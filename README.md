@@ -40,6 +40,15 @@ Ohne Windows Terminal öffnen sich 4 einzelne Fenster, auf macOS/Linux laufen di
 
 Die Sessions laufen mit eurem Standard-Berechtigungsmodus. Freigegeben sind Websuche sowie Lesen und Schreiben von Dateien.
 
+## Claude Desktop (ohne Terminal)
+
+In Claude Desktop gibt es kein Terminal und keine parallelen Sessions. Dafür gibt es `desktop/council/`: ein Modell spielt alle vier Rollen nacheinander in einer Antwort und liefert dasselbe Urteilsformat.
+
+1. Claude Desktop → Einstellungen → Fähigkeiten → Skills → **Skill hochladen** → `desktop/council.zip` wählen.
+2. Im Chat: „Bewerte meine Idee: …“ oder „Council: …“.
+
+Unterschied zum Terminal-Council: Die drei Analysen sind nicht technisch voneinander getrennt, weil ein Modell sie nacheinander schreibt. Der Skill weist es an, jede Rolle nur aus der Idee heraus zu schreiben. Ganz so unabhängig wie vier getrennte Sessions ist das aber nicht.
+
 ## Ablage
 
 ```
@@ -66,4 +75,7 @@ skill/council/
   run-role.ps1    ← eine Rolle = eine Session (Judge wartet erst auf die anderen drei)
   config/         ← Rollenbeschreibungen, hier anpassen
 install.ps1       ← Skill installieren
+desktop/
+  council/SKILL.md ← Variante für Claude Desktop: alle Rollen in einer Antwort
+  council.zip      ← dasselbe als Upload-Datei
 ```

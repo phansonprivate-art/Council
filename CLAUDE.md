@@ -16,6 +16,7 @@ Claude-Code-Skill `/council`: Vier Rollen bewerten eine Idee, jede in einer eige
 - `skill/council/config/<rolle>.md`: Rollenbeschreibungen. Die Arbeitsanweisungen, Formate und Marker stehen in `run-role.ps1`.
 - `workspace.txt` wird von `install.ps1` nur im installierten Skill angelegt (Ablageort für `output/` und `logs/`). Reihenfolge: `COUNCIL_HOME` → `workspace.txt` → `~/council`.
 - `output/` und `logs/` sind Laufzeitdaten und in `.gitignore`.
+- `desktop/council/SKILL.md`: eigenständige Variante für Claude Desktop (kein Terminal, keine Skripte, ein Modell spielt alle Rollen). Wird als `desktop/council.zip` hochgeladen. Nach Änderungen am SKILL.md das ZIP neu bauen, und zwar **nicht** mit `Compress-Archive` unter PowerShell 5.1: Das schreibt Backslashes in die Pfade. Stattdessen `System.IO.Compression.ZipFile` mit dem Eintragsnamen `council/SKILL.md`. Ändert sich das Urteilsformat in `run-role.ps1`, hier mitziehen.
 
 ## Konventionen
 
